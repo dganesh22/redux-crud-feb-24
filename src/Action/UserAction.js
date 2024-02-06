@@ -19,7 +19,8 @@ export const createUser = createAsyncThunk(CREATE_USER, async (user) => {
 })
 
 export const readUser = createAsyncThunk(READ_USER, async () => {
-  
+    const res = await readAllUser()
+    return res.data
 })
 
 
@@ -28,5 +29,6 @@ export const updateUser = createAsyncThunk(UPDATE_USER, async ({user, id}) => {
 })
 
 export const deleteUser = createAsyncThunk(DELETE_USER, async ({id}) => {
-    
+     await userDelete(id)
+        return { id }
 })

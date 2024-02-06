@@ -8,7 +8,7 @@ import { createProduct, readProduct, updateProduct, deleteProduct } from '../Act
 // const Slice = createSlice({name, state, slice controller})
 const ProductSlice = createSlice({
     name: "product",
-    initialState: { materials: [] },
+    initialState: [],
     extraReducers: (builder) => {
         // addCase(action,reducer)
          builder.addCase(createProduct.fulfilled, (state,action) => {})
@@ -21,7 +21,5 @@ const ProductSlice = createSlice({
                 .addCase(deleteProduct.rejected, () => {})
     }
 })
-
-
 
 export default ProductSlice

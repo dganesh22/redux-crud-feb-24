@@ -7,7 +7,7 @@ import ProductSlice from '../Reducer/ProductReducer'
 //combine reducer 
 const ProjectReducer = combineReducers({
     users: UserSlice.reducer,
-    materials: ProductSlice.reducer
+    products: ProductSlice.reducer
 })
 
 

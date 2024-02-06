@@ -2,6 +2,7 @@ import React, { useRef } from 'react'
 import { toast } from 'react-toastify'
 import { useDispatch } from 'react-redux'
 import { createUser } from '../../Action/UserAction'
+import { useNavigate } from 'react-router-dom'
 
 
 
@@ -10,6 +11,8 @@ function Create() {
     const fname = useRef()
     const femail = useRef()
     const fmobile = useRef()
+
+    const navigate = useNavigate()
 
     const submitHandler = async (e) => {
         e.preventDefault()
@@ -22,6 +25,12 @@ function Create() {
 
             // console.log(`new user = `, data)
             dispatch(createUser(data))
+                .unwrap()
+                .then(res => {
+                    toast.success("new user data added successfully")
+                    navigate('/users')
+                })
+                .catch(err => toast.error(err.response.data.message))
 
         } catch (err) {
             toast.error(err.message)
